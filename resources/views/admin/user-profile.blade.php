@@ -25,10 +25,6 @@
                     @endif
                 </div>
                 <div class="form-group">
-                    <label for="about-me"><strong>About Me:</strong></label>
-                    <textarea name="about_me" cols="30" rows="10" class="form-control" placeholder="About Me">{{$user->about_me}}</textarea>
-                </div>
-                <div class="form-group">
                     <label for="profile-picture"><strong>Profile Picture:</strong></label>
                     @if($user->profile_picture != '')
                     <div class="mb-4">

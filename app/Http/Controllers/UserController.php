@@ -46,9 +46,7 @@ class UserController extends Controller
         if(request('profile_picture')){
             $input['profile_picture'] = request('profile_picture')->store('profile-pictures');
         }
-        if(request('about_me')){
-            $input['about_me'] = request('about_me');
-        }
+       
         $user->update($input);
         Session::flash('user-updated', 'Details updated successfully');
         return back();
