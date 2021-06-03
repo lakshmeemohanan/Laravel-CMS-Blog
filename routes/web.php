@@ -46,7 +46,7 @@ Route::middleware(['web','auth','role:Admin'])->group(function(){
     Route::put('/admin/users/{user}/detach', 'UserController@detach')->name('admin.users.role.detach');
 });
 /* View User Profile */
-Route::middleware('can:view,user')->group(function(){
+Route::middleware(['can:view,user'])->group(function(){
     Route::get('/admin/users/{user}/profile', 'UserController@show')->name('admin.user.profile');
 });
 /* Authorization Module - Roles, Permissions */
