@@ -37,6 +37,7 @@
                     <button class="btn btn-primary btn-submit">Update</button>
                 </div>
             </form>
+            @if(auth()->user()->userHasRole('Admin'))
             <!-- Roles Starts-->
             @if($roles->count() > 0)
                 <div class="card shadow mb-4">
@@ -105,6 +106,7 @@
                         </div>
                     </div>
                 </div>
+            @endif
             @endif
             <div class="d-flex">
                 <div class="mx-auto">
