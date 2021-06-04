@@ -20,7 +20,6 @@ class CommentController extends Controller
         $url = $_SERVER['PHP_SELF'];
         $input['post_id'] = $_POST['post_id'];
         $input['user_id'] = auth()->user()->id;
-        print_r($input);exit;
         Comment::create($input);
         Session::flash('comment-saved', 'Comment Posted successfully');
         return redirect()->route('post.show',$input['post_id']);
