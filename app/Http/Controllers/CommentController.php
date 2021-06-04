@@ -14,12 +14,11 @@ class CommentController extends Controller
         return view('admin.comments', compact('comments'));
     }
     public function store(Request $request){
-        //echo $request->id; exit;
         $input = request()->validate([
             'comment' => 'required'
         ]);
         $url = $_SERVER['PHP_SELF'];
-        $input['post_id'] = substr($url, strrpos($url, '/') + 1);
+        $input['post_id'] = $_POST['post_id'];
         $input['user_id'] = auth()->user()->id;
         print_r($input);exit;
         Comment::create($input);

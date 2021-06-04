@@ -29,6 +29,7 @@
           <div class="card-body">
             <form method="POST" action="{{ route('post.comment.store', $post->id)}}">
               @csrf
+              <input type="hidden" name="post_id" value="{{$post->id}}" />
               <div class="form-group">
                 <textarea name="comment" class="form-control" rows="3"></textarea>
               </div>
