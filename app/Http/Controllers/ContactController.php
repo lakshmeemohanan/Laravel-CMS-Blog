@@ -20,7 +20,7 @@ class ContactController extends Controller
             'name' => 'required',
             'email' => 'required|email',
             'subject' => 'required',
-            'phone_number' => 'required',
+            'phone_number' => 'required|min:10|max:10',
             'message' => 'required'
         ]);
         $contact = new Contact;
