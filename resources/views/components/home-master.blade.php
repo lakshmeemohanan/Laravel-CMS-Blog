@@ -55,7 +55,15 @@
                         {{auth()->user()->name}}
                       @endif
                     </span>
-                    <img height="20" class="img-profile rounded-circle" src="/storage/{{auth()->user()->profile_picture}}">
+                    @if(auth()->user()->profile_picture)
+                      @if(file_exists('/storage/{{auth()->user()->profile_picture}}')) 
+                        <img height ="20" class="img-profile rounded-circle" src="/storage/{{auth()->user()->profile_picture}}">
+                      @else
+                        <img height ="20" class="img-profile rounded-circle" src="/storage/profile-pictures/blank.png">
+                      @endif
+                    @else
+                      <img height ="20" class="img-profile rounded-circle" src="/storage/profile-pictures/blank.png">
+                    @endif
                   </a>
                   <!-- Dropdown - User Information -->
                   <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

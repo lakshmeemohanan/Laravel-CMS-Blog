@@ -9,7 +9,11 @@
           <!-- Blog Post -->
           @foreach($posts as $post)
           <div class="card mb-4">
-            <img class="card-img-top" src="/storage/{{$post->featured_image}}" alt="Card image cap">
+             @if($post->featured_image)
+                <img class="card-img-top" src="/storage/{{$post->featured_image}}">
+              @else
+                <img class="card-img-top" src="/storage/post-uploads/blank.png">
+              @endif
             <div class="card-body">
               <h3 class="card-title">{{$post->title}}</h3>
               <p class="card-text">{{str_limit($post->long_description, '200', '...')}}</p>

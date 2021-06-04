@@ -12,7 +12,11 @@
         <hr>
             <p>Posted on {{$post->created_at->diffForHumans()}}</p>
         <hr>
-            <img class="img-fluid rounded" src="/storage/{{$post->featured_image}}" alt="{{$post->title}}">
+              @if($post->featured_image)
+                <img class="img-fluid rounded" alt="{{$post->title}}" src="/storage/{{$post->featured_image}}">
+              @else
+                <img class="img-fluid rounded" alt="{{$post->title}}" src="/storage/post-uploads/blank.png">
+              @endif
         <hr>
         <p>{{$post->long_description}}</p>
 
@@ -36,7 +40,11 @@
         <!-- Single Comment -->
         @foreach($comments as $comment)
         <div class="media mb-4">
-          <img class="d-flex mr-3 rounded-circle" height="20" src="/storage/{{ $comment->user->profile_picture }}" alt="{{ $comment->user->name }}">
+          @if($comment->user->profile_picture)
+              <img class="d-flex mr-3 rounded-circle" height="20" alt="{{ $comment->user->name }}" src="/storage/{{$comment->user->profile_picture}}">
+          @else
+            <img class="d-flex mr-3 rounded-circle" height="20" src="/storage/profile-pictures/blank.png">
+          @endif
           <div class="media-body">
             <h5 class="mt-0">{{ $comment->user->name }}</h5>
             {{$comment->comment}}
